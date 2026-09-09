@@ -7,7 +7,7 @@ Final-year Computer Science student interested in Machine Learning and AI, focus
 Three-part exploration of a specialized coding LLM's full lifecycle: align it, compress it, serve it fast.
 
 - **[CodeAlign](https://github.com/Sergasgr/CodeAlign)** — Post-training Qwen2.5-Coder-7B-Instruct with SFT + DPO, using a composite reward (execution success + code complexity + lint score) instead of binary pass/fail, to avoid reward-hacking toward code that passes tests but is needlessly complex. Covers 8 languages spanning JetBrains' IDE lineup.
-- **[CodeAlign-Runtime](https://github.com/TU-USUARIO/CodeAlign-Runtime)** *(in development)* — Minimal C++/CUDA inference engine to serve the model with low latency: naive CUDA kernels → optimized kernels → INT4 quantization, with a final comparison against llama.cpp planned.
+- **[CodeAlign-Runtime](https://github.com/Sergasgr/CodeAlign-Runtime)** *(in development)* — Minimal C++/CUDA inference engine to serve the model with low latency: naive CUDA kernels → optimized kernels → INT4 quantization, with a final comparison against llama.cpp planned.
 - **CodeAlign-Distillation** *(future)* — Knowledge distillation + QAT to compress CodeAlign's DPO checkpoint into a 5-14x smaller model, closing the loop for CodeAlign-Runtime.
 
 ## Open Source Contributions
