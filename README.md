@@ -6,7 +6,7 @@ Final-year Computer Science student interested in Machine Learning and AI, focus
 
 Three-part exploration of a specialized coding LLM's full lifecycle: align it, compress it, serve it fast.
 
-- **[CodeAlign](https://github.com/Sergasgr/CodeAlign)** — Post-training Qwen2.5-Coder-7B-Instruct with SFT + DPO, using a composite reward (execution success + code complexity + lint score) instead of binary pass/fail, to avoid reward-hacking toward code that passes tests but is needlessly complex. Covers 8 languages spanning JetBrains' IDE lineup.
+- **[CodeAlign](https://github.com/Sergasgr/CodeAlign)** — End-to-end post-training of Qwen2.5-Coder-7B-Instruct on one 16 GB GPU: 122K CommitPackFT samples curated across 8 languages, QLoRA SFT, preference pairs labelled by a Docker sandbox (Rust gRPC daemon) and static analysis, and DPO with a composite vs. execution-only reward plus a size-matched control. The evaluation reproduces the base model's published HumanEval score (90.2%), and the ablation shows both offline rewards being gamed: commented-out code "runs without errors". v2 turns it into a benchmark of PEFT, alignment and distillation methods for code.
 - **[CodeAlign-Runtime](https://github.com/Sergasgr/CodeAlign-Runtime)** — Low-latency C++/CUDA inference engine for Qwen2.5-Coder-0.5B: hand-written GEMV/GEMM kernels, INT4 quantization, Flash-Decoding attention, and a full transformer decode loop — every optimization measured against a theoretical bandwidth ceiling, not reported in a vacuum.
 - **CodeAlign-Distillation** *(future)* — Knowledge distillation + QAT to compress CodeAlign's DPO checkpoint into a 5-14x smaller model, closing the loop for CodeAlign-Runtime.
 
