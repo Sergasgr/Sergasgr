@@ -14,6 +14,10 @@ CodeAlign (align) → CodeAlign-Distill (compress) → CodeAlign-Runtime (serve)
 
 ## Open Source Contributions
 
-**[peft](https://github.com/huggingface/peft)** — Added benchmark experiments for 7 PEFT methods/variants (BEFT, HiRA, AdaMSS, UniLoRA, VeLoRA, BD-LoRA, MonteCLoRA) to the FLUX.2-klein image-gen benchmark, evaluated against LoRA/OFT baselines with learning-rate tuning (Optuna) and ablation sweeps. Implemented ASA training-callback support in the image-gen benchmark's `run.py` (previously unimplemented) and extended target-module coverage to single-stream `to_out` layers that the shared config missed. Exploratory and superseded runs are published in the PEFT benchmark graveyard as negative results — including VeLoRA's, where the benchmark's default gradient checkpointing already addresses the activation-memory cost the method targets, a combination the paper never tested. 
+**[peft](https://github.com/huggingface/peft)** — Contributions to Hugging Face's PEFT library across its benchmark suite and core code.
 
-[Discussion #3522](https://github.com/huggingface/peft/discussions/3522) · [All PRs](https://github.com/huggingface/peft/pulls?q=is%3Apr+author%3ASergasgr+state%3Amerged) · [Hugging Face activity](https://huggingface.co/Sergasgr/activity/community) 
+- **Image-gen benchmark (FLUX.2-klein):** Added experiments for 9 PEFT methods/variants (BEFT, HiRA, AdaMSS, UniLoRA, VeLoRA, BD-LoRA, MonteCLoRA, TinyLoRA, Super-Tuning), evaluated against LoRA/OFT baselines with learning-rate tuning (Optuna) and ablation sweeps. Implemented ASA training-callback support in the benchmark's `run.py` (previously unimplemented) and extended target-module coverage to single-stream `to_out` layers that the shared config missed. Exploratory and superseded runs are published in the PEFT benchmark graveyard as negative results — including VeLoRA's, where the benchmark's default gradient checkpointing already addresses the activation-memory cost the method targets, a combination the paper never tested.
+- **MetaMathQA benchmark:** Added VeLoRA experiment.
+- **Bug Fixing:** Fixed incorrect gradients in LoHa with `use_effective_conv2d=True`.
+
+[Discussion #3522](https://github.com/huggingface/peft/discussions/3522) · [Discussion #3521](https://github.com/huggingface/peft/discussions/3521) · [All merged PRs](https://github.com/huggingface/peft/pulls?q=is%3Apr+author%3ASergasgr+state%3Amerged) · [Hugging Face activity](https://huggingface.co/Sergasgr/activity/community)
