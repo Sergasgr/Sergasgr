@@ -20,4 +20,4 @@ CodeAlign (align) → CodeAlign-Distill (compress) → CodeAlign-Runtime (serve)
 - **MetaMathQA benchmark:** Added VeLoRA experiment.
 - **Bug Fixing:** Fixed incorrect gradients in LoHa with `use_effective_conv2d=True`.
 
-[Discussion #3522](https://github.com/huggingface/peft/discussions/3522) · [Discussion #3521](https://github.com/huggingface/peft/discussions/3521) · [All merged PRs](https://github.com/huggingface/peft/pulls?q=is%3Apr+author%3ASergasgr+state%3Amerged) · [Hugging Face activity](https://huggingface.co/Sergasgr/activity/community)
+[All merged PRs](https://github.com/huggingface/peft/pulls?q=is%3Apr+author%3ASergasgr+state%3Amerged) · [Discussion #3521](https://github.com/huggingface/peft/discussions/3521) · [Discussion #3522](https://github.com/huggingface/peft/discussions/3522) · [Hugging Face activity](https://huggingface.co/Sergasgr/activity/community)
