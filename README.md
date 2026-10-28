@@ -12,10 +12,16 @@ Three-part exploration of a specialized coding LLM's full lifecycle: align it, c
 
 ## Open Source Contributions
 
+## Open Source Contributions
+
 **[peft](https://github.com/huggingface/peft)** — Contributions to Hugging Face's PEFT library across its benchmark suite and core code.
 
-- **Image-gen benchmark (FLUX.2-klein):** Added experiments for 9 PEFT methods/variants (BEFT, HiRA, AdaMSS, UniLoRA, VeLoRA, BD-LoRA, MonteCLoRA, TinyLoRA, Super-Tuning), evaluated against LoRA/OFT baselines with learning-rate tuning (Optuna) and ablation sweeps. Implemented ASA training-callback support in the benchmark's `run.py` (previously unimplemented) and extended target-module coverage to single-stream `to_out` layers that the shared config missed. Exploratory and superseded runs are published in the PEFT benchmark graveyard as negative results — including VeLoRA's, where the benchmark's default gradient checkpointing already addresses the activation-memory cost the method targets, a combination the paper never tested.
-- **MetaMathQA benchmark:** Added VeLoRA experiment.
-- **Bug Fixing:** Fixed incorrect gradients in LoHa with `use_effective_conv2d=True`.
+* **Image-gen benchmark (FLUX.2-klein):** Added experiments for 9 PEFT methods/variants (BEFT, HiRA, AdaMSS, UniLoRA, VeLoRA, BD-LoRA, MonteCLoRA, TinyLoRA, Super-Tuning), evaluated against LoRA/OFT baselines with learning-rate tuning (Optuna) and ablation sweeps, and re-tuned the learning rate of the existing LoHa and FourierFT entries. Implemented ASA training-callback support in the benchmark's `run.py` (previously unimplemented) and extended target-module coverage to single-stream `to_out` layers that the shared config missed. Exploratory and superseded runs are published in the PEFT benchmark graveyard as negative results — including VeLoRA's, where the benchmark's default gradient checkpointing already addresses the activation-memory cost the method targets, a combination the paper never tested.
+* **MetaMathQA benchmark:** Added a VeLoRA experiment and re-tuned the learning rate of the existing LoHa entry.
+* **Bug fixes:** Fixed incorrect LoHa gradients with `use_effective_conv2d=True`, `unload()` returning the trained `modules_to_save` copy instead of the original module, an `unload()` crash for composite `modules_to_save` without a `weight`, and a crash in the method-comparison `run.py`.
 
 [All merged PRs](https://github.com/huggingface/peft/pulls?q=is%3Apr+author%3ASergasgr+state%3Amerged) · [Discussion #3521](https://github.com/huggingface/peft/discussions/3521) · [Discussion #3522](https://github.com/huggingface/peft/discussions/3522) · [Hugging Face activity](https://huggingface.co/Sergasgr/activity/community)
+
+**[diffusers](https://github.com/huggingface/diffusers)** — Fixed Z-Image silently ignoring the LoRA scale passed via `joint_attention_kwargs` ([#15015](https://github.com/huggingface/diffusers/pull/15015), issue [#15007](https://github.com/huggingface/diffusers/issues/15007)).
+
+**[trl](https://github.com/huggingface/trl)** — Reported and fixed a `DPOTrainer` crash when `use_weighting=True` is combined with an `sft` loss type ([#7651](https://github.com/huggingface/trl/pull/7651), under review; issue [#7630](https://github.com/huggingface/trl/issues/7630)).
