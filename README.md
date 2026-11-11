@@ -23,4 +23,4 @@ Three-part exploration of a specialized coding LLM's full lifecycle: align it, c
 
 **[diffusers](https://github.com/huggingface/diffusers)** — Fixed Z-Image silently ignoring the LoRA scale passed via `joint_attention_kwargs` ([#15015](https://github.com/huggingface/diffusers/pull/15015), issue [#15007](https://github.com/huggingface/diffusers/issues/15007)).
 
-**[trl](https://github.com/huggingface/trl)** — Reported and fixed a `DPOTrainer` crash when `use_weighting=True` is combined with an `sft` loss type ([#7651](https://github.com/huggingface/trl/pull/7651), under review; issue [#7630](https://github.com/huggingface/trl/issues/7630)).
+**[trl](https://github.com/huggingface/trl)** — Fixed a `DPOTrainer` crash when `use_weighting=True` is combined with an `sft` loss type ([#7651](https://github.com/huggingface/trl/pull/7651), issue [#7630](https://github.com/huggingface/trl/issues/7630)).
