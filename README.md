@@ -15,7 +15,7 @@ Three-part exploration of a specialized coding LLM's full lifecycle: align it, c
 **[peft](https://github.com/huggingface/peft)** — Contributions to Hugging Face's PEFT library across its benchmark suite, test suite and core code.
 
 * **Image-gen benchmark (FLUX.2-klein):** Added experiments for 9 PEFT methods/variants (BEFT, HiRA, AdaMSS, UniLoRA, VeLoRA, BD-LoRA, MonteCLoRA, TinyLoRA, Super-Tuning), evaluated against LoRA/OFT baselines with learning-rate tuning (Optuna) and ablation sweeps, and re-tuned the learning rate of the existing LoHa and FourierFT entries. Implemented ASA training-callback support in the benchmark's `run.py` (previously unimplemented) and extended target-module coverage to single-stream `to_out` layers that the shared config missed. Exploratory and superseded runs are published in the PEFT benchmark graveyard as negative results — including VeLoRA's, where the benchmark's default gradient checkpointing already addresses the activation-memory cost the method targets, a combination the paper never tested.
-* **MetaMathQA benchmark:** Added a VeLoRA experiment and re-tuned the learning rate of the existing LoHa entry.
+* **MetaMathQA benchmark:** Added a VeLoRA experiment and re-tuned the learning rate of the existing LoHa, FourierFT and LN Tuning entries.
 * **Bug fixes:** Fixed incorrect LoHa gradients with `use_effective_conv2d=True`, `unload()` returning the trained `modules_to_save` copy instead of the original module, an `unload()` crash for composite `modules_to_save` without a `weight`, and a crash in the method-comparison `run.py`.
 * **Test suite:** Replaced the Conv1D test-skip allowlist with a shared denylist, re-enabling 94 GPT-2 tests that were being skipped for methods that do support Conv1D.
 
